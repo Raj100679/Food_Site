@@ -28,7 +28,19 @@ function Veggies() {
       <Wrapper>
         <h3>Our Vegeterian Picks</h3>
         <Splide options={{
-          perPage: 3,
+          breakpoints: {
+                   
+                        916: {
+                            perPage: 2,
+
+                        },
+                        640: {
+                            perPage: 1,
+                        },
+                        2000:{
+                            perPage:3,
+                        }
+                    },
           arrows: false,
           pagination: false,
           gap: "5rem",
