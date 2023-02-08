@@ -14,11 +14,11 @@ function Details() {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
         const resp = await data.json();
         setDetails(resp);
-        console.log(resp);
+        // console.log(resp);
     }
     return (
         <Wrapper>
-            <div>
+            <div >
                 <h4>{details.title}</h4>
                 <img src={details.image} alt={details.title} />
             </div>
@@ -28,7 +28,7 @@ function Details() {
                     <SButton className={activeTab === "instructions" ? "active" : ""} onClick={() => { setactiveTab("instructions") }}>Instructions</SButton>
                     <div>
                         <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
-                        <h4 dangerouslySetInnerHTML={{ __html: details.instructions }}></h4>
+                        <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
                     </div>
                    
                 </SInfo>
@@ -36,6 +36,7 @@ function Details() {
         </Wrapper>
     )
 }
+
 const Wrapper = styled.div`
   margin-top:5rem;
   margin-bottom : 5rem;
@@ -48,13 +49,49 @@ const Wrapper = styled.div`
   ul{
       margin-top:1.5rem;
   }
-  h4{
-      margin-bottom : 2rem;
+  h3{
+   
+      @media(max-width:900px){
+        font-size:16px;
+      }
+      @media(max-width:600px){
+        font-size:14px;
+      }
+  }
+  img{
+    margin-top:1rem;
+    @media(max-width:670px){
+        height:350px;
+        width:500px;
+      }
+      @media(max-width:590px){
+        height:250px;
+        width:450px;
+      }
+      @media(max-width:525px){
+        height:250px;
+        width:380px;
+      }
+      @media(max-width:460px){
+        height:250px;
+        width:350px;
+      }
+      @media(max-width:400px){
+        height:180px;
+        width:290px;
+      }
   }
   li{
       font-size:1.2rem;
       line-height: 1.5rem;
   }
+  @media(max-width:1400px){
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content:left;
+  }
+  
 
 `
 const SButton = styled.button`
@@ -68,6 +105,16 @@ const SButton = styled.button`
 `
 const SInfo = styled.div`
   margin-left: 5rem;
+  @media(max-width:1400px){
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content:left;
+    margin-left: 0rem;
+    margin-top:3rem;
+  }
+  
+  
   
 `
 const Sdiv = styled.div`
@@ -76,6 +123,13 @@ const Sdiv = styled.div`
    align-items: center;
    justify-content: center;
    margin-left:3rem;
+   @media(max-width:1400px){
+  
+    margin-left: 0rem;
+  }
+  
+  
+   
 `
 
 export default Details;
