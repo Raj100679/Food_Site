@@ -28,9 +28,26 @@ function Categories() {
     )
 }
 const List = styled.div`
-   display :flex;
-   justify-content: center;
-   margin: 2rem 0;
+  
+    display :flex;
+    ${'' /* flex-direction:column;  */}
+    align-items:center;
+    justify-content: center;
+   margin: 3rem 0; 
+   @media(max-width:600px){
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    ${'' /* margin-left:auto; */}
+    grid-gap:10px;
+    margin-left:70px;
+  }
+  @media(max-width:475px){
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    margin-right:20px;
+  }
+   
 `
 const Slink = styled(NavLink)`
   display:flex;
@@ -62,6 +79,8 @@ const Slink = styled(NavLink)`
           color:white;
       }
   }
+ 
+
 `;
 
 export default Categories;
