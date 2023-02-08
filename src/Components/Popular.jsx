@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Popular() {
@@ -31,7 +31,21 @@ function Popular() {
             <Wrapper>
                 <h3>Trending Picks</h3>
                 <Splide options={{
-                    perPage: 4,
+                    breakpoints: {
+                        1024: {
+                            perPage: 3,
+                        },
+                        916: {
+                            perPage: 2,
+
+                        },
+                        640: {
+                            perPage: 1,
+                        },
+                        2000:{
+                            perPage:4,
+                        }
+                    },
                     arrows: false,
                     pagination: false,
                     gap: "5rem",
@@ -41,7 +55,7 @@ function Popular() {
                         return (
                             <SplideSlide key={recipe.id}>
                                 <Card>
-                                    <Link to={"/details/"+recipe.id}>
+                                    <Link to={"/details/" + recipe.id}>
                                         <p>{recipe.title}</p>
                                         <img src={recipe.image} alt={recipe.title}></img>
                                         <Gradient />
@@ -87,6 +101,7 @@ const Card = styled.div`
    justify-content: center;
    align-items:center;
   }
+  
 `
 const Gradient = styled.div`
   z-index:3;
