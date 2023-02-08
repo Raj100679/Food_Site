@@ -25,12 +25,14 @@ function Search() {
     )
 }
 const SForm = styled.form`
-   margin: 0rem 10rem;
+   ${'' /* margin: 0rem 10rem; */}
    div{
+       ${'' /* margin: 0rem 20rem; */}
        width: 100%;
        position: relative;
    }
    input{
+    ${'' /* margin: 0rem 10rem; */}
        width: 100%;
        border: none;
        background: linear-gradient(35deg,#313131,#494949);
@@ -48,5 +50,15 @@ const SForm = styled.form`
         transform: translate(100%,-50%);
         color: white;
     }
+    @media(max-width:2000px){
+      margin:0rem 10rem;
+    }
+    @media(max-width:1170px){
+      margin:0rem 3rem;
+    }
+    @media(max-width:920px){
+      margin:0rem 10px;
+    }
+    
 `;
 export default Search;
